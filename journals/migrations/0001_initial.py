@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('city', models.CharField(max_length=20, verbose_name='Город')),
-                ('img', models.ImageField(upload_to='location-images')),
+                ('img', models.ImageField(upload_to='image')),
                 ('topic', models.CharField(max_length=50, verbose_name='Тема')),
                 ('description', models.TextField(max_length=120, verbose_name='Описание')),
                 ('created_at', models.DateTimeField(default=datetime.datetime(2024, 2, 8, 20, 22, 31, 381482))),
@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
-                ('img', models.ImageField(upload_to='location-images')),
+                ('img', models.ImageField(upload_to='image')),
                 ('description', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='journals.location')),
             ],
         ),

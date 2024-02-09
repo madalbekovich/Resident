@@ -4,7 +4,7 @@ from django.utils.timezone import now
 
 
 class Holiday(models.Model):
-    img = models.ImageField(upload_to='location-images')
+    img = models.ImageField(upload_to='image')
     topic = models.CharField(_('Тема'), max_length=50)
     description = models.TextField(_('Описание'), max_length=120)
     created_at = models.DateTimeField(default=now)
@@ -24,7 +24,7 @@ class Holiday(models.Model):
 
 
 class Estate(models.Model):
-    img = models.ImageField(upload_to='location-images')
+    img = models.ImageField(upload_to='image')
     topic = models.CharField(_('Тема'), max_length=50)
     description = models.TextField(_('Описание'), max_length=120)
     created_at = models.DateField(default=now)
@@ -44,7 +44,7 @@ class Estate(models.Model):
 
 
 class Interview(models.Model):
-    img = models.ImageField(upload_to='location-images')
+    img = models.ImageField(upload_to='image')
     topic = models.CharField(_('Тема'), max_length=50)
     description = models.TextField(_('Описание'), max_length=120)
     created_at = models.DateField(default=now)
@@ -59,9 +59,12 @@ class Interview(models.Model):
 
     def save(self, *args, **kwargs):
         if len(self.description.split()) >= 100:
-            self.reading_is = f'{1} МИН'
+            self.reading_is = f'{1} мин'
             super().save(*args, **kwargs)
 
+
+class Slider(models.Model):
+    image = models.CharField(max_length=255)
 
 
 
